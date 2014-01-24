@@ -1,0 +1,5 @@
+.grunt
+dist
+node_modules
+tmp
+vendor/bower

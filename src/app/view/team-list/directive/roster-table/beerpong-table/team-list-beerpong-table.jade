@@ -1,0 +1,52 @@
+//------------------------------------------------------------------------------
+//- Subview of the beerpong roster.
+//------------------------------------------------------------------------------
+
+div
+
+  table(
+    at-table
+    list = "currentRosterModel.list"
+  )
+    thead
+      th(
+        attribute = "retired"
+      )
+        i.fa.fa-bolt
+    tbody
+      tr(
+        ng-click = "toggleSelectPlayer({player: item})"
+        ng-class = "{'selected-row' : item.selected == true}"
+      )
+        td(
+          attribute = "retired"
+        )
+          div(
+            ng-show = "item.retired == false"
+          )
+            i.fa.fa-check
+          div(
+            ng-show = "item.retired != false"
+          )
+            i.icon-spacer
+        td(
+          at-implicit
+          attribute = "name"
+        )
+        td(
+          at-implicit
+          attribute = "wins"
+        )
+        td(
+          at-implicit
+          attribute = "losses"
+        )
+        td(
+          at-implicit
+          title     = "Handedness"
+          attribute = "hand"
+        )
+        td(
+          at-implicit
+          attribute = "position"
+        )

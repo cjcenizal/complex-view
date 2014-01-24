@@ -1,0 +1,22 @@
+//------------------------------------------------------------------------------
+//- Subview of the selected team roster.
+//------------------------------------------------------------------------------
+
+div
+  
+  //- Switch between tables, depending on sport.
+  div(
+    ng-switch = "currentSport"
+  )
+
+    fs-team-list-calvinball-table(
+      ng-switch-when                                     = "CALVINBALL"
+      fs-team-list-calvinball-table-current-roster-model = "currentRosterModel"
+      fs-team-list-calvinball-table-toggle-select-player = "toggleSelectPlayer(player)"
+    )
+
+    fs-team-list-beerpong-table(
+      ng-switch-when                                   = "BEERPONG"
+      fs-team-list-beerpong-table-current-roster-model = "currentRosterModel"
+      fs-team-list-beerpong-table-toggle-select-player = "toggleSelectPlayer(player)"
+    )

@@ -1,0 +1,57 @@
+//------------------------------------------------------------------------------
+//- View of team rosters and roster-editing UI.
+//------------------------------------------------------------------------------
+
+h1 Fantasy
+  strike football
+  | &nbsp;made-up sports
+
+hr
+
+//- Sport navigation.
+dl.sub-nav
+  dt Sport:
+  dd(
+    ng-repeat = "sport in sports"
+    ng-class = "{'active' : currentSport == sport}"
+  )
+    a(
+      ng-click = "showSport(sport)"
+    )
+      | {{sportNames[sport]}}
+
+//- Common team actions.
+ul.button-group
+  li
+    a.button(
+      ng-click = "addPlayer()"
+    )
+      | Add player
+  li
+    a.button(
+      ng-click = "removeSelectedPlayers()"
+    )
+      | Remove players
+  li
+    a.button(
+      ng-click = "retireSelectedPlayers()"
+    )
+      | Retire players
+  li
+    a.button(
+      ng-click = "unretireSelectedPlayers()"
+    )
+      | Un-retire players
+  li(
+    ng-show = "currentSport == BEERPONG"
+  )
+    a.button(
+      ng-click = "switchHandednessForSelectedPlayers()"
+    )
+      | Switch handedness
+
+//- Table directive.
+fs-team-list-roster-table(
+  fs-team-list-roster-table-current-sport        = "currentSport"
+  fs-team-list-roster-table-current-roster-model = "currentRosterModel"
+)
