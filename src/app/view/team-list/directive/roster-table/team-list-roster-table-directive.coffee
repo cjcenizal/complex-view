@@ -24,11 +24,11 @@ FS.directive "fsTeamListRosterTable", [
         for player in players
           player.selected = false
 
-      toggleSelectPlayer = (player) ->
+      scope.toggleSelectPlayer = (player) ->
 
         player.selected = not player.selected
 
-      teamListToggleSelectPlayerSignal.add toggleSelectPlayer
+      teamListToggleSelectPlayerSignal.add scope.toggleSelectPlayer
       teamListDeselectPlayersSignal.add    deselectPlayers
 
 ]

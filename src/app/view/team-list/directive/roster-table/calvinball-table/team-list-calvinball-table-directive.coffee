@@ -12,7 +12,12 @@ FS.directive "fsTeamListCalvinballTable", [
 
     link: (scope) ->
 
-      # Add button that shows random "toasty"-style Calvinball image
+      # TODO: Add button that shows random "toasty"-style Calvinball image
+
+      ###
+      This directive requires creates its own `toggleSelectPlayer` scope method,
+      which uses a signal to communicate with whatever directive is listening.
+      ###
 
       scope.toggleSelectPlayer = (player) ->
 

@@ -17,7 +17,7 @@ Functionally, these requirements mean our view needs to load the user's account 
 
 A view is just a template + a controller, and that's a crapton of crap to stuff into two files! I like to use directives to lighten the load.
 
-My template hierarchy looks like this:
+My directives' template hierarchy looks like this:
 
 ```
 team-list-view
@@ -34,6 +34,12 @@ team-list-view
 
 These additional files let me offload logic from the controller and group it into specific concerns.
 
+#### Embrace isolated scope
+
+Isolated scope is bad for component directives that need to play nicely with other directives, e.g. input-validation directives that work with ng-model.  But when breaking a view down into nested templates and directives, you want to avoid implicitly relying on properties and methods on an inherited scope.
+
+Isolated scopes force dependencies to be explicit, encouraging more descriptive and maintainable code.
+
 #### Stay DRY with APIs
 
 Think of each directive in terms of an interface which can be consumed by its children.
@@ -42,7 +48,7 @@ Think of each directive in terms of an interface which can be consumed by its ch
 
 There are a few ways to pass data and messages between directives.
 
-If you want to pass a dependency, then use an attribute.  Don't group dependencies in a single object; instead create as many attributes as you need, 1 per dependency.  This is how you can expose your API.
+If you want to pass a dependency, then use an attribute.  Don't group dependencies in a single object; instead create as many attributes as you need, 1 per dependency.  This is one way to expose your API, but I've had trouble passing a method to the isolated scope of  a more than one isolated scope.
 
 You can also use the scope event system, though this can be inefficient and obscure your view's logic.
 

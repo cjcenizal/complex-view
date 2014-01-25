@@ -1,7 +1,5 @@
 FS.directive "fsTeamListBeerpongTable", [
-  "teamListToggleSelectPlayerSignal"
   (
-    teamListToggleSelectPlayerSignal
   ) ->
 
     restrict:    "E"
@@ -9,12 +7,17 @@ FS.directive "fsTeamListBeerpongTable", [
     replace:     true
     scope:
       currentRosterModel: "=fsTeamListBeerpongTableCurrentRosterModel"
+      toggleSelectPlayer:  "&fsTeamListBeerpongTableToggleSelectPlayer"
 
     link: (scope) ->
 
-      # Add button for showing a toast "Drink!"
+      # TODO: Add button for showing a toast "Drink!"
 
-      scope.toggleSelectPlayer = (player) ->
+      ###
+      This directive requires `toggleSelectPlayer` to be provided via its
+      attributes.  This means it needs to be called in a special way from the
+      template.  It also gets tricky if you want to provide it to a child
+      directive with an isolated scope.
+      ###
 
-        teamListToggleSelectPlayerSignal.dispatch player
 ]

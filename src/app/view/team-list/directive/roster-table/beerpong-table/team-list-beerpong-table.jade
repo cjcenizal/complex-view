@@ -15,7 +15,7 @@ div
         i.fa.fa-bolt
     tbody
       tr(
-        ng-click = "toggleSelectPlayer(item)"
+        ng-click = "toggleSelectPlayer({player: item})"
         ng-class = "{'selected-row' : item.selected == true}"
       )
         td(
