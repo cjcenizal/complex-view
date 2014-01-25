@@ -1,9 +1,9 @@
 FS.factory "CalvinballRosterModel", [
   "mixinFactory"
-  "rosterMixin"
+  "rosterMixinFactory"
   (
     mixinFactory
-    rosterMixin
+    rosterMixinFactory
   ) ->
 
     CalvinballRosterModel = class
@@ -36,7 +36,7 @@ FS.factory "CalvinballRosterModel", [
           rule:   "Give before it hurts"
         ]
 
-    mixinFactory CalvinballRosterModel, rosterMixin.create()
+    mixinFactory CalvinballRosterModel, rosterMixinFactory.create()
 
     return CalvinballRosterModel
 

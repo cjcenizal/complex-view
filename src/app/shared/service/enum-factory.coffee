@@ -1,4 +1,4 @@
-FS.factory "enumsFactory", ->
+FS.factory "enumFactory", ->
 
   (config) ->
 

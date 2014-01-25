@@ -9,10 +9,4 @@ FS.directive "fsTeamListRosterTable", ->
 
   link: (scope) ->
 
-    #---------------------------------------------------------------------------
-    # Row selection.
-    #---------------------------------------------------------------------------
-
-    scope.toggleSelectPlayer = (player) ->
-      
-      player.selected = not player.selected
+    # Image some additional functionality needs to exist in this view, such as um...

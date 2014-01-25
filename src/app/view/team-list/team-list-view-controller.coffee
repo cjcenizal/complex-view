@@ -2,28 +2,30 @@ FS.controller "TeamListViewController", [
   "$scope"
   "BeerpongRosterModel"
   "CalvinballRosterModel"
-  "sportsEnum"
+  "sportEnum"
+  "teamListToggleSelectPlayerSignal"
   (
     $scope
     BeerpongRosterModel
     CalvinballRosterModel
-    sportsEnum
+    sportEnum
+    teamListToggleSelectPlayerSignal
   ) ->
 
     #---------------------------------------------------------------------------
     # Sport enums.
     #---------------------------------------------------------------------------
 
-    $scope.CALVINBALL = sportsEnum.values.CALVINBALL
-    $scope.BEERPONG   = sportsEnum.values.BEERPONG
+    $scope.CALVINBALL = sportEnum.values.CALVINBALL
+    $scope.BEERPONG   = sportEnum.values.BEERPONG
 
     #---------------------------------------------------------------------------
     # Sport/roster navigation.
     #---------------------------------------------------------------------------
 
-    $scope.sports       = sportsEnum.values
-    $scope.sportNames   = sportsEnum.humanizedValues
-    $scope.currentSport = sportsEnum.values.BEERPONG
+    $scope.sports       = sportEnum.values
+    $scope.sportNames   = sportEnum.humanizedValues
+    $scope.currentSport = sportEnum.values.BEERPONG
 
     $scope.showSport = (sport) ->
 
@@ -31,7 +33,6 @@ FS.controller "TeamListViewController", [
 
       $scope.currentSport       = sport
       $scope.currentRosterModel = getCurrentRostetModel()
-
 
     #---------------------------------------------------------------------------
     # Common table actions.
@@ -61,6 +62,10 @@ FS.controller "TeamListViewController", [
       for player in getSelectedPlayers()
         $scope.currentRosterModel.switchHandedness player
 
+    #---------------------------------------------------------------------------
+    # Selecting players.
+    #---------------------------------------------------------------------------
+
     getSelectedPlayers = ->
 
       return _.where $scope.currentRosterModel.list,
@@ -71,6 +76,11 @@ FS.controller "TeamListViewController", [
       for player in players
         player.selected = false
 
+    toggleSelectPlayer = (player) ->
+
+      player.selected = not player.selected
+
+    teamListToggleSelectPlayerSignal.add toggleSelectPlayer
 
     #---------------------------------------------------------------------------
     # User's rosters.

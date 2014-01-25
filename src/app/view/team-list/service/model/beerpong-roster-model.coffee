@@ -1,9 +1,9 @@
 FS.factory "BeerpongRosterModel", [
   "mixinFactory"
-  "rosterMixin"
+  "rosterMixinFactory"
   (
     mixinFactory
-    rosterMixin
+    rosterMixinFactory
   ) ->
 
     BeerpongRosterModel = class
@@ -55,7 +55,7 @@ FS.factory "BeerpongRosterModel", [
         else if player.hand is "Righty"
           player.hand = "Lefty"
 
-    mixinFactory BeerpongRosterModel, rosterMixin.create()
+    mixinFactory BeerpongRosterModel, rosterMixinFactory.create()
 
     return BeerpongRosterModel
 

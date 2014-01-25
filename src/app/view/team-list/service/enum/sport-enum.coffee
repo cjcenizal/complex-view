@@ -1,10 +1,10 @@
-FS.factory "sportsEnum", [
-  "enumsFactory"
+FS.factory "sportEnum", [
+  "enumFactory"
   (
-    enumsFactory
+    enumFactory
   ) ->
 
-    return enumsFactory
+    return enumFactory
 
       BEERPONG:
         value:          "BEERPONG"
