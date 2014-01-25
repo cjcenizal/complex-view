@@ -38,7 +38,7 @@ These additional files let me offload logic from the controller and group it int
 
 Isolated scope is bad for component directives that need to play nicely with other directives, e.g. input-validation directives that work with ng-model.  But when breaking a view down into nested templates and directives, you want to avoid implicitly relying on properties and methods on an inherited scope.
 
-Isolated scopes force dependencies to be explicit, encouraging more descriptive and maintainable code.
+Isolated scopes force dependencies to be explicit, encouraging more descriptive and maintainable code.  Since you have to explicitly provide dependencies to a directive via attributes, you also gain some clues about a directive's role just by looking at how it's used in the template.
 
 #### Stay DRY with APIs
 
@@ -48,7 +48,7 @@ Think of each directive in terms of an interface which can be consumed by its ch
 
 There are a few ways to pass data and messages between directives.
 
-If you want to pass a dependency, then use an attribute.  Don't group dependencies in a single object; instead create as many attributes as you need, 1 per dependency.  This is one way to expose your API, but I've had trouble passing a method to the isolated scope of  a more than one isolated scope.
+If you want to pass a dependency, then use an attribute.  Don't group dependencies in a single object; instead create as many attributes as you need, 1 per dependency.  This is one way to expose your API, but it's tricky passing a method to nested isolated scopes.
 
 You can also use the scope event system, though this can be inefficient and obscure your view's logic.
 

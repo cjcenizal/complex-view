@@ -12,6 +12,7 @@ FS.directive "fsTeamListRosterTable", [
     scope:
       currentSport:       "=fsTeamListRosterTableCurrentSport"
       currentRosterModel: "=fsTeamListRosterTableCurrentRosterModel"
+      getSelectedPlayers: "&fsTeamListRosterTableGetSelectedPlayers"
 
     link: (scope) ->
 

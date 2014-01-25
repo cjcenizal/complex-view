@@ -29,7 +29,7 @@ FS.controller "TeamListViewController", [
 
     $scope.showSport = (sport) ->
 
-      teamListDeselectPlayersSignal.dispatch getSelectedPlayers()
+      teamListDeselectPlayersSignal.dispatch $scope.getSelectedPlayers()
 
       $scope.currentSport       = sport
       $scope.currentRosterModel = getCurrentRostetModel()
@@ -44,29 +44,29 @@ FS.controller "TeamListViewController", [
 
     $scope.removeSelectedPlayers = ->
 
-      for player in getSelectedPlayers()
+      for player in $scope.getSelectedPlayers()
         $scope.currentRosterModel.remove player
 
     $scope.activateSelectedPlayers = ->
 
-      for player in getSelectedPlayers()
+      for player in $scope.getSelectedPlayers()
         $scope.currentRosterModel.activate player
 
     $scope.deactivateSelectedPlayers = ->
 
-      for player in getSelectedPlayers()
+      for player in $scope.getSelectedPlayers()
         $scope.currentRosterModel.deactivate player
 
     $scope.switchHandednessForSelectedPlayers = ->
 
-      for player in getSelectedPlayers()
+      for player in $scope.getSelectedPlayers()
         $scope.currentRosterModel.switchHandedness player
 
     #---------------------------------------------------------------------------
     # Selected players.
     #---------------------------------------------------------------------------
 
-    getSelectedPlayers = ->
+    $scope.getSelectedPlayers = ->
 
       return _.where $scope.currentRosterModel.list,
         selected: true

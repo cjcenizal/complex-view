@@ -7,7 +7,8 @@ FS.directive "fsTeamListBeerpongTable", [
     replace:     true
     scope:
       currentRosterModel: "=fsTeamListBeerpongTableCurrentRosterModel"
-      toggleSelectPlayer:  "&fsTeamListBeerpongTableToggleSelectPlayer"
+      getSelectedPlayers: "&fsTeamListBeerpongTableGetSelectedPlayers"
+      toggleSelectPlayer: "&fsTeamListBeerpongTableToggleSelectPlayer"
 
     link: (scope) ->
 
