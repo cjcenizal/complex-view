@@ -29,7 +29,19 @@ FS.directive "fsTeamListRosterTable", [
 
         player.selected = not player.selected
 
-      teamListToggleSelectPlayerSignal.add scope.toggleSelectPlayer
-      teamListDeselectPlayersSignal.add    deselectPlayers
+      removeToggleSelectPlayerListener =
+        teamListToggleSelectPlayerSignal.add scope.toggleSelectPlayer
+
+      removeDeselectPlayersListener =
+        teamListDeselectPlayersSignal.add deselectPlayers
+
+      #---------------------------------------------------------------------------
+      # Clean up.
+      #---------------------------------------------------------------------------
+
+      scope.on "$destroy", ->
+
+        removeToggleSelectPlayerListener()
+        removeDeselectPlayersListener()
 
 ]

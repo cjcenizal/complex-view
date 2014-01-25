@@ -8,9 +8,12 @@ FS.factory "signalFactory", ->
 
     add: (listener) ->
 
-      return listener if @has listener
+      removeCallback = =>
+        @remove listener
+
+      return removeCallback if @has listener
       @_listeners.push listener
-      return listener
+      return removeCallback
 
     has: (listener) ->
 
@@ -19,8 +22,8 @@ FS.factory "signalFactory", ->
 
     remove: (listener) ->
 
-      return listener unless @has listener
-      return @_listeners.splice @_listeners.indexOf(listener), 1
+      return unless @has listener
+      @_listeners.splice @_listeners.indexOf(listener), 1
 
     removeAll: ->
       
