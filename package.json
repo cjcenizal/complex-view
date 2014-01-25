@@ -1,9 +1,9 @@
 {
-  "name": "broman",
+  "name": "decomposing-complex-views",
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chemoish/broman.git"
+    "url": "https://github.com/cjcenizal/complex-view"
   },
   "devDependencies": {
     "coffee-script": "~1.6.3",

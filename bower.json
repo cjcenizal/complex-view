@@ -1,5 +1,5 @@
 {
-  "name": "broman",
+  "name": "decomposing-complex-views",
   "version": "1.0.0",
   "dependencies": {
     "angular":           "*",
