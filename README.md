@@ -40,8 +40,13 @@ Think of each directive in terms of an interface which can be consumed by its ch
 
 #### Inter-directive communication
 
-There are a few ways to pass data and messages between directives.  If you want to pass a dependency, then use an attribute.  Don't group dependencies in a single object; instead create as many attributes as you need, 1 per dependency.  This is how you can expose your API.  You can also use the scope event system, though this can be inefficient and obscure your view's logic.  I like to use
-a signal service instead.
+There are a few ways to pass data and messages between directives.
+
+If you want to pass a dependency, then use an attribute.  Don't group dependencies in a single object; instead create as many attributes as you need, 1 per dependency.  This is how you can expose your API.
+
+You can also use the scope event system, though this can be inefficient and obscure your view's logic.
+
+I like to use signal services instead.  These are services the implement the observer pattern.  Because they're services, you can register handler functions anywhere in your view, and dispatch them from anywhere.  This uncouples your event system from your scope hierarchy, and keeps your events tightly scoped to your view.
 
 ## Questions
 

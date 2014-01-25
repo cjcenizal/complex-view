@@ -1,4 +1,4 @@
-FS.factory "teamListToggleSelectPlayerSignal", [
+FS.factory "teamListDeselectPlayersSignal", [
   "signalFactory"
   (
     signalFactory

@@ -3,13 +3,13 @@ FS.controller "TeamListViewController", [
   "BeerpongRosterModel"
   "CalvinballRosterModel"
   "sportEnum"
-  "teamListToggleSelectPlayerSignal"
+  "teamListDeselectPlayersSignal"
   (
     $scope
     BeerpongRosterModel
     CalvinballRosterModel
     sportEnum
-    teamListToggleSelectPlayerSignal
+    teamListDeselectPlayersSignal
   ) ->
 
     #---------------------------------------------------------------------------
@@ -29,7 +29,7 @@ FS.controller "TeamListViewController", [
 
     $scope.showSport = (sport) ->
 
-      deselectPlayers getSelectedPlayers()
+      teamListDeselectPlayersSignal.dispatch getSelectedPlayers()
 
       $scope.currentSport       = sport
       $scope.currentRosterModel = getCurrentRostetModel()
@@ -63,24 +63,13 @@ FS.controller "TeamListViewController", [
         $scope.currentRosterModel.switchHandedness player
 
     #---------------------------------------------------------------------------
-    # Selecting players.
+    # Selected players.
     #---------------------------------------------------------------------------
 
     getSelectedPlayers = ->
 
       return _.where $scope.currentRosterModel.list,
         selected: true
-
-    deselectPlayers = (players) ->
-
-      for player in players
-        player.selected = false
-
-    toggleSelectPlayer = (player) ->
-
-      player.selected = not player.selected
-
-    teamListToggleSelectPlayerSignal.add toggleSelectPlayer
 
     #---------------------------------------------------------------------------
     # User's rosters.

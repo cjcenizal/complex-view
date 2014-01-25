@@ -1,9 +1,9 @@
-FS.factory "teamListSignalFactory", [
+FS.factory "teamListToggleSelectPlayerSignal", [
   "signalFactory"
   (
     signalFactory
   ) ->
 
-    toggleSelectPlayer: signalFactory.create()
+    signalFactory.create()
 
 ]
