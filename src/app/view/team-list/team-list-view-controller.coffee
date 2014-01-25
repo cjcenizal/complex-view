@@ -46,15 +46,15 @@ FS.controller "TeamListViewController", [
       for player in getSelectedPlayers()
         $scope.currentRosterModel.remove player
 
-    $scope.retireSelectedPlayers = ->
+    $scope.activateSelectedPlayers = ->
 
       for player in getSelectedPlayers()
-        $scope.currentRosterModel.retire player
+        $scope.currentRosterModel.activate player
 
-    $scope.unretireSelectedPlayers = ->
+    $scope.deactivateSelectedPlayers = ->
 
       for player in getSelectedPlayers()
-        $scope.currentRosterModel.unretire player
+        $scope.currentRosterModel.deactivate player
 
     $scope.switchHandednessForSelectedPlayers = ->
 

@@ -18,10 +18,10 @@ FS.factory "rosterMixin", ->
         index = @list.indexOf player
         @list.splice index, 1
 
-      retire: (player) ->
+      activate: (player) ->
 
-        player.retired = true
+        player.active = true
 
-      unretire: (player) ->
+      deactivate: (player) ->
 
-        player.retired = false
+        player.active = false

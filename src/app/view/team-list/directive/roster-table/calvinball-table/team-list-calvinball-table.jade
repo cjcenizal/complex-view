@@ -10,7 +10,7 @@ div
   )
     thead
       th(
-        attribute = "retired"
+        attribute = "active"
       )
         i.fa.fa-bolt
     tbody
@@ -19,14 +19,14 @@ div
         ng-class = "{'selected-row' : item.selected == true}"
       )
         td(
-          attribute = "retired"
+          attribute = "active"
         )
           div(
-            ng-show = "item.retired == false"
+            ng-show = "item.active == true"
           )
             i.fa.fa-check
           div(
-            ng-show = "item.retired != false"
+            ng-show = "item.active == false"
           )
             i.icon-spacer
         td(

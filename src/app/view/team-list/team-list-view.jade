@@ -34,14 +34,14 @@ ul.button-group
       | Remove players
   li
     a.button(
-      ng-click = "retireSelectedPlayers()"
+      ng-click = "activateSelectedPlayers()"
     )
-      | Retire players
+      | Activate players
   li
     a.button(
-      ng-click = "unretireSelectedPlayers()"
+      ng-click = "deactivateSelectedPlayers()"
     )
-      | Un-retire players
+      | Deactivate players
   li(
     ng-show = "currentSport == BEERPONG"
   )
