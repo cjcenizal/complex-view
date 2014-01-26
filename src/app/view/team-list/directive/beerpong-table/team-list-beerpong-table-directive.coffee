@@ -3,7 +3,7 @@ FS.directive "fsTeamListBeerpongTable", [
   ) ->
 
     restrict:    "E"
-    templateUrl: "view/team-list/directive/roster-table/beerpong-table/team-list-beerpong-table.html"
+    templateUrl: "view/team-list/directive/beerpong-table/team-list-beerpong-table.html"
     replace:     true
     scope:
       currentRosterModel: "=fsTeamListBeerpongTableCurrentRosterModel"

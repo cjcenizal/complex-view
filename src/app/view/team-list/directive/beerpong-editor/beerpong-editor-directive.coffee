@@ -5,7 +5,7 @@ FS.directive "fsBeerpongEditor", [
   ) ->
 
     restrict:    "E"
-    templateUrl: "view/team-list/directive/roster-table/beerpong-table/beerpong-editor/beerpong-editor.html"
+    templateUrl: "view/team-list/directive/beerpong-editor/beerpong-editor.html"
     replace:     true
     scope:
       currentRosterModel = "fsBeerpongEditorCurrentRosterModel"
