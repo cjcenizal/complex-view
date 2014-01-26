@@ -11,7 +11,7 @@ This example project is an app that lets you manage fantasty teams for two sport
 - The table displays sport-specific stats for user's teams.
 - The row of buttons provides basic functionality that is shared by both teams (e.g. add player, remove player), as well as functionality that's specific to each team.
 
-#### Use directives to de-bloat view controllers
+#### One-off directives as extensions of the controller
 
 Functionally, these requirements mean our view needs to load the user's account data, manage the presentation of that data, handle user input, watch and react to changes on the scope, coordinate logic among injected services, and clean up after itself on $destroy.
 
@@ -53,6 +53,8 @@ If you want to pass a dependency, then use an attribute.  Don't group dependenci
 You can also use the scope event system, though this can be inefficient and obscure your view's logic.
 
 I like to use signal services instead.  These are services the implement the observer pattern.  Because they're services, you can register handler functions anywhere in your view, and dispatch them from anywhere.  This uncouples your event system from your scope hierarchy, and keeps your events tightly scoped to your view.
+
+#### Skinny controllers, fat models
 
 ## Questions
 
