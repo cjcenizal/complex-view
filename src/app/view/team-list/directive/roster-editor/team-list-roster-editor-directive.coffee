@@ -10,7 +10,6 @@ FS.directive "fsTeamListRosterEditor", [
     scope:
       currentSport:       "=fsTeamListRosterEditorCurrentSport"
       currentRosterModel: "=fsTeamListRosterEditorCurrentRosterModel"
-      getSelectedPlayers: "=fsTeamListRosterEditorGetSelectedPlayers"
 
     link: (scope) ->
 
@@ -31,17 +30,17 @@ FS.directive "fsTeamListRosterEditor", [
 
       scope.removeSelectedPlayers = ->
 
-        for player in scope.getSelectedPlayers()
+        for player in scope.currentRosterModel.getSelected()
           scope.currentRosterModel.remove player
 
       scope.activateSelectedPlayers = ->
 
-        for player in scope.getSelectedPlayers()
+        for player in scope.currentRosterModel.getSelected()
           scope.currentRosterModel.activate player
 
       scope.deactivateSelectedPlayers = ->
 
-        for player in scope.getSelectedPlayers()
+        for player in scope.currentRosterModel.getSelected()
           scope.currentRosterModel.deactivate player
 
       #---------------------------------------------------------------------------
@@ -50,6 +49,6 @@ FS.directive "fsTeamListRosterEditor", [
 
       scope.switchHandednessForSelectedPlayers = ->
 
-        for player in scope.getSelectedPlayers()
+        for player in scope.currentRosterModel.getSelected()
           scope.currentRosterModel.switchHandedness player
 ]

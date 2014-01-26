@@ -12,7 +12,6 @@ FS.directive "fsTeamListRosterTable", [
     scope:
       currentSport:       "=fsTeamListRosterTableCurrentSport"
       currentRosterModel: "=fsTeamListRosterTableCurrentRosterModel"
-      getSelectedPlayers: "&fsTeamListRosterTableGetSelectedPlayers"
 
     link: (scope) ->
 
@@ -22,12 +21,11 @@ FS.directive "fsTeamListRosterTable", [
 
       deselectPlayers = (players) ->
 
-        for player in players
-          player.selected = false
+        scope.currentRosterModel?.deselectAll()
 
       scope.toggleSelectPlayer = (player) ->
 
-        player.selected = not player.selected
+        scope.currentRosterModel.toggleSelect player
 
       removeToggleSelectPlayerListener =
         teamListToggleSelectPlayerSignal.add scope.toggleSelectPlayer

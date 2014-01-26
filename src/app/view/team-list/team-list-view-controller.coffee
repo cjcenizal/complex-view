@@ -13,22 +13,7 @@ FS.controller "TeamListViewController", [
   ) ->
 
     #---------------------------------------------------------------------------
-    # Current sport.
-    #---------------------------------------------------------------------------
-
-    $scope.currentSport = null
-
-    #---------------------------------------------------------------------------
-    # Selected players.
-    #---------------------------------------------------------------------------
-
-    $scope.getSelectedPlayers = ->
-
-      return _.where $scope.currentRosterModel?.list,
-        selected: true
-
-    #---------------------------------------------------------------------------
-    # User's rosters.
+    # Models.
     #---------------------------------------------------------------------------
 
     $scope.rosterModels = {}
@@ -42,8 +27,15 @@ FS.controller "TeamListViewController", [
     $scope.$watch "currentSport", (currentSport, previousCurrentSport) ->
 
       if currentSport isnt previousCurrentSport
-        # Deselect current players and switch section.
-        teamListDeselectPlayersSignal.dispatch $scope.getSelectedPlayers()
+        # Deselect current players and switch roster.
+        teamListDeselectPlayersSignal.dispatch $scope.currentRosterModel?.getSelected()
         $scope.currentRosterModel = $scope.rosterModels[$scope.currentSport]
+
+    #---------------------------------------------------------------------------
+    # View state.
+    #---------------------------------------------------------------------------
+
+    $scope.currentSport       = sportEnum.values.CALVINBALL
+    $scope.currentRosterModel = $scope.rosterModels[$scope.currentSport]
 
 ]

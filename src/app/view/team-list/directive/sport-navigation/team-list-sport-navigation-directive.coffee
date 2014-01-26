@@ -12,12 +12,8 @@ FS.directive "fsTeamListSportNavigation", [
 
     link: (scope) ->
 
-      scope.sports       = sportEnum.values
-      scope.sportNames   = sportEnum.humanizedValues
-
-      # Set default sport.
-      # TODO: Pass this in via attribute so view controller can be in charge.
-      scope.currentSport = sportEnum.values.CALVINBALL
+      scope.sports     = sportEnum.values
+      scope.sportNames = sportEnum.humanizedValues
 
       scope.showSport = (sport) ->
 

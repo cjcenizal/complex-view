@@ -1,19 +1,19 @@
 FS.directive "fsBeerpongEditor", [
+  "teamListDeselectPlayersSignal"
   (
+    teamListDeselectPlayersSignal
   ) ->
 
     restrict:    "E"
     templateUrl: "view/team-list/directive/roster-table/beerpong-table/beerpong-editor/beerpong-editor.html"
     replace:     true
     scope:
-      getSelectedPlayers: "&fsBeerpongEditorGetSelectedPlayers"
-      toggleSelectPlayer: "&fsBeerpongEditorToggleSelectPlayer"
+      currentRosterModel = "fsBeerpongEditorCurrentRosterModel"
 
     link: (scope) ->
 
       scope.deselectAllPlayers = ->
-        
-        for player in scope.getSelectedPlayers()
-          scope.toggleSelectPlayer {player: player}
+
+        teamListDeselectPlayersSignal.dispatch scope.currentRosterModel?.getSelected()
 
 ]

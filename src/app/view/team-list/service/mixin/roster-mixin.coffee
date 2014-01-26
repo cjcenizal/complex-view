@@ -43,10 +43,10 @@ FS.factory "rosterMixinFactory", ->
 
     deselectAll: ->
 
-      for player in @getAllSelected()
+      for player in @getSelected()
         player.selected = false
 
-    getAllSelected: ->
+    getSelected: ->
 
       return _.where @list,
         selected: true
