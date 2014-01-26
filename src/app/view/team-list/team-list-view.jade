@@ -8,17 +8,9 @@ h1 Fantasy
 
 hr
 
-//- Sport navigation.
-dl.sub-nav
-  dt Sport:
-  dd(
-    ng-repeat = "sport in sports"
-    ng-class = "{'active' : currentSport == sport}"
-  )
-    a(
-      ng-click = "showSport(sport)"
-    )
-      | {{sportNames[sport]}}
+fs-team-list-sport-navigation(
+  fs-team-list-sport-navigation-current-sport = "currentSport"
+)
 
 //- Common team actions.
 ul.button-group

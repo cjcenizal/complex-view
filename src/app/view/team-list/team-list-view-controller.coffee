@@ -13,26 +13,17 @@ FS.controller "TeamListViewController", [
   ) ->
 
     #---------------------------------------------------------------------------
+    # Current sport.
+    #---------------------------------------------------------------------------
+
+    $scope.currentSport = null
+
+    #---------------------------------------------------------------------------
     # Sport enums.
     #---------------------------------------------------------------------------
 
     $scope.CALVINBALL = sportEnum.values.CALVINBALL
     $scope.BEERPONG   = sportEnum.values.BEERPONG
-
-    #---------------------------------------------------------------------------
-    # Sport/roster navigation.
-    #---------------------------------------------------------------------------
-
-    $scope.sports       = sportEnum.values
-    $scope.sportNames   = sportEnum.humanizedValues
-    $scope.currentSport = sportEnum.values.BEERPONG
-
-    $scope.showSport = (sport) ->
-
-      teamListDeselectPlayersSignal.dispatch $scope.getSelectedPlayers()
-
-      $scope.currentSport       = sport
-      $scope.currentRosterModel = getCurrentRostetModel()
 
     #---------------------------------------------------------------------------
     # Common table actions.
@@ -68,7 +59,7 @@ FS.controller "TeamListViewController", [
 
     $scope.getSelectedPlayers = ->
 
-      return _.where $scope.currentRosterModel.list,
+      return _.where $scope.currentRosterModel?.list,
         selected: true
 
     #---------------------------------------------------------------------------
@@ -87,6 +78,11 @@ FS.controller "TeamListViewController", [
 
       return $scope.rosterModels[$scope.currentSport]
 
-    $scope.currentRosterModel = getCurrentRostetModel()
+    $scope.$watch "currentSport", (currentSport, previousCurrentSport) ->
+
+      if currentSport isnt previousCurrentSport
+        # Deselect current players and switch section.
+        teamListDeselectPlayersSignal.dispatch $scope.getSelectedPlayers()
+        $scope.currentRosterModel = getCurrentRostetModel()
 
 ]

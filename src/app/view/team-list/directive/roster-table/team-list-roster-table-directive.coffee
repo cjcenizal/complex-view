@@ -39,7 +39,7 @@ FS.directive "fsTeamListRosterTable", [
       # Clean up.
       #---------------------------------------------------------------------------
 
-      scope.on "$destroy", ->
+      scope.$on "$destroy", ->
 
         removeToggleSelectPlayerListener()
         removeDeselectPlayersListener()

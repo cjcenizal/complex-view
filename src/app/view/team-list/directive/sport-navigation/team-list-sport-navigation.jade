@@ -1,0 +1,14 @@
+//------------------------------------------------------------------------------
+//- Sport navigation.
+//------------------------------------------------------------------------------
+
+dl.sub-nav
+  dt Sport:
+  dd(
+    ng-repeat = "sport in sports"
+    ng-class = "{'active' : currentSport == sport}"
+  )
+    a(
+      ng-click = "showSport(sport)"
+    )
+      | {{sportNames[sport]}}
