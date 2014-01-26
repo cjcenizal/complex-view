@@ -4,15 +4,25 @@ FS.factory "rosterMixinFactory", ->
 
     constructor: ->
 
-      @_id = 1
+      @_id  = 1
+      @list = []
 
     add: ->
 
-      @list.push
+      @list.push @create()
+
+    addWith: (attributes) ->
+
+      @list.push _.extend @create(), attributes
+
+    create: ->
+
+      return {
         name:   "New Player #{@_id++}"
         wins:   0
         losses: 0
-        rule:   "None"
+        active: false
+      }
 
     remove: (player) ->
       
@@ -26,6 +36,20 @@ FS.factory "rosterMixinFactory", ->
     deactivate: (player) ->
 
       player.active = false
+
+    toggleSelect: (player) ->
+
+      player.selected = not player.selected
+
+    deselectAll: ->
+
+      for player in @getAllSelected()
+        player.selected = false
+
+    getAllSelected: ->
+
+      return _.where @list,
+        selected: true
 
   create: ->
 

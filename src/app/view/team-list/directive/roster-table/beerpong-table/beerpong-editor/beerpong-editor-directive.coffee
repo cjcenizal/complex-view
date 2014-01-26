@@ -12,6 +12,7 @@ FS.directive "fsBeerpongEditor", [
     link: (scope) ->
 
       scope.deselectAllPlayers = ->
+        
         for player in scope.getSelectedPlayers()
           scope.toggleSelectPlayer {player: player}
 

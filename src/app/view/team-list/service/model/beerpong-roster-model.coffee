@@ -47,6 +47,12 @@ FS.factory "BeerpongRosterModel", [
           position: "I'm Ron Burgundy?"
         ]
 
+      add: ->
+
+        @addWith
+          hand:     "Righty"
+          position: "None"
+
       switchHandedness: (player) ->
 
         if player.hand is "Lefty"

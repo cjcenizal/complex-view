@@ -2,4 +2,4 @@ FS.factory "mixinFactory", ->
 
   (BaseReference, interfaceInstance) ->
 
-    _.extend BaseReference.prototype, interfaceInstance
+    _.defaults BaseReference.prototype, interfaceInstance

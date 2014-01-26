@@ -36,6 +36,11 @@ FS.factory "CalvinballRosterModel", [
           rule:   "Give before it hurts"
         ]
 
+      add: ->
+
+        @addWith
+          rule: "None"
+
     mixinFactory CalvinballRosterModel, rosterMixinFactory.create()
 
     return CalvinballRosterModel
