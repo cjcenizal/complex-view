@@ -1,5 +1,5 @@
 FS.factory "mixinFactory", ->
 
-  (BaseReference, interfaceInstance) ->
+  (MixIntoClassReference, mixinInterface) ->
 
-    _.defaults BaseReference.prototype, interfaceInstance
+    _.defaults MixIntoClassReference.prototype, mixinInterface
