@@ -21,9 +21,12 @@ My directives' template hierarchy looks like this:
 
 ```
 team-list-view
+├── team-list-sport-navigation
+├── team-list-roster-editor
 └── team-list-roster-table
     ├── team-list-calvinball-table
     └── team-list-beerpong-table
+        └──  beerpong-editor
 ```
 
 `team-list-view` loads the user's teams and exposes an API for editing them. It also exposes an API for navigating the teams.
