@@ -3,12 +3,12 @@ FS.factory "enumFactory", ->
   (config) ->
 
     enums =
-      config:          config
-      values:          {}
-      humanizedValues: {}
+      config:         config
+      value:          {}
+      humanizedValue: {}
 
     for enumKey, enumValues of config
-      enums.values[enumKey]          = enumValues.value
-      enums.humanizedValues[enumKey] = enumValues.humanizedValue
+      enums.value[enumKey]          = enumValues.value
+      enums.humanizedValue[enumKey] = enumValues.humanizedValue
 
     return enums

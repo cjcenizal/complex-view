@@ -12,8 +12,8 @@ FS.directive "fsTeamListSportNavigation", [
 
     link: (scope) ->
 
-      scope.sports     = sportEnum.values
-      scope.sportNames = sportEnum.humanizedValues
+      scope.sports     = sportEnum.value
+      scope.sportNames = sportEnum.humanizedValue
 
       scope.showSport = (sport) ->
 

@@ -21,8 +21,8 @@ FS.controller "TeamListViewController", [
     # TODO: Normally we'd authenticate + load from the back-end, but for now
     # voila, we have our user's rosters.
 
-    $scope.rosterModels[sportEnum.values.CALVINBALL] = new CalvinballRosterModel()
-    $scope.rosterModels[sportEnum.values.BEERPONG]   = new BeerpongRosterModel()
+    $scope.rosterModels[sportEnum.value.CALVINBALL] = new CalvinballRosterModel()
+    $scope.rosterModels[sportEnum.value.BEERPONG]   = new BeerpongRosterModel()
 
     $scope.$watch "currentSport", (currentSport, previousCurrentSport) ->
 
@@ -35,7 +35,7 @@ FS.controller "TeamListViewController", [
     # View state.
     #---------------------------------------------------------------------------
 
-    $scope.currentSport       = sportEnum.values.CALVINBALL
+    $scope.currentSport       = sportEnum.value.CALVINBALL
     $scope.currentRosterModel = $scope.rosterModels[$scope.currentSport]
 
 ]
