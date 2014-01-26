@@ -3,6 +3,7 @@ FS.factory "enumFactory", ->
   (config) ->
 
     enums =
+      config:          config
       values:          {}
       humanizedValues: {}
 
