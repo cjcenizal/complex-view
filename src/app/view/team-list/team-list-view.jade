@@ -12,35 +12,11 @@ fs-team-list-sport-navigation(
   fs-team-list-sport-navigation-current-sport = "currentSport"
 )
 
-//- Common team actions.
-ul.button-group
-  li
-    a.button(
-      ng-click = "addPlayer()"
-    )
-      | Add player
-  li
-    a.button(
-      ng-click = "removeSelectedPlayers()"
-    )
-      | Remove players
-  li
-    a.button(
-      ng-click = "activateSelectedPlayers()"
-    )
-      | Activate players
-  li
-    a.button(
-      ng-click = "deactivateSelectedPlayers()"
-    )
-      | Deactivate players
-  li(
-    ng-show = "currentSport == BEERPONG"
-  )
-    a.button(
-      ng-click = "switchHandednessForSelectedPlayers()"
-    )
-      | Switch handedness
+fs-team-list-roster-editor(
+  fs-team-list-roster-editor-current-sport        = "currentSport"
+  fs-team-list-roster-editor-current-roster-model = "currentRosterModel"
+  fs-team-list-roster-editor-get-selected-players = "getSelectedPlayers"
+)
 
 //- Table directive.
 fs-team-list-roster-table(

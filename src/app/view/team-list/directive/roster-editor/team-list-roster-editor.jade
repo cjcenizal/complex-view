@@ -1,0 +1,32 @@
+//------------------------------------------------------------------------------
+//- Roster editor.
+//------------------------------------------------------------------------------
+
+ul.button-group
+  li
+    a.button(
+      ng-click = "addPlayer()"
+    )
+      | Add player
+  li
+    a.button(
+      ng-click = "removeSelectedPlayers()"
+    )
+      | Remove players
+  li
+    a.button(
+      ng-click = "activateSelectedPlayers()"
+    )
+      | Activate players
+  li
+    a.button(
+      ng-click = "deactivateSelectedPlayers()"
+    )
+      | Deactivate players
+  li(
+    ng-show = "currentSport == BEERPONG"
+  )
+    a.button(
+      ng-click = "switchHandednessForSelectedPlayers()"
+    )
+      | Switch handedness
