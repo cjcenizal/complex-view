@@ -8,7 +8,15 @@ FS.factory "enumFactory", ->
       humanizedValue: {}
 
     for enumKey, enumValues of config
-      enums.value[enumKey]          = enumValues.value
-      enums.humanizedValue[enumKey] = enumValues.humanizedValue
+
+      # Ensure values cannot be changed.
+      Object.defineProperty enums.value, enumKey,
+        enumerable: true
+        value:      enumValues.value
+
+      # Ensure humanized values cannot be changed.
+      Object.defineProperty enums.humanizedValue, enumKey,
+        enumerable: true
+        value:      enumValues.humanizedValue
 
     return enums
