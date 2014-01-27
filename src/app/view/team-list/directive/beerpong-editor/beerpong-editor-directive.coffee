@@ -1,6 +1,8 @@
 FS.directive "fsBeerpongEditor", [
+  "showToastSignal"
   "teamListDeselectPlayersSignal"
   (
+    showToastSignal
     teamListDeselectPlayersSignal
   ) ->
 
@@ -15,5 +17,18 @@ FS.directive "fsBeerpongEditor", [
       scope.deselectAllPlayers = ->
 
         teamListDeselectPlayersSignal.dispatch scope.currentRosterModel?.getSelected()
+
+      scope.showRandomToast = ->
+
+        messages = [
+          "All your base belong to us!"
+          "It's a trap!"
+          "We're losing the forward shields!"
+          "Doesn't anyone have any missiles left?!"
+          "You require more vespene gas!"
+          "Lay down suppressing fire and fall back by twos!"
+        ]
+
+        showToastSignal.dispatch _.sample messages
 
 ]

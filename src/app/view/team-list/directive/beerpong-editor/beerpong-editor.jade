@@ -2,7 +2,14 @@
 //- Example of calling a method passed through more than 1 isolated scope.
 //------------------------------------------------------------------------------
 
-a.button.tiny.round(
-  ng-click = "deselectAllPlayers()"
-)
-  | Deselect all
+div
+
+  a.button.tiny.round(
+    ng-click = "deselectAllPlayers()"
+  )
+    | Deselect all
+
+  a.button.tiny.round(
+    ng-click = "showRandomToast()"
+  )
+    | Show toast
