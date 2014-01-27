@@ -1,4 +1,4 @@
-window.FS = angular.module "FS", ["ngRoute", "angular-table"], [
+window.FS = angular.module "FS", ["ngAnimate", "ngRoute", "angular-table"], [
   "$locationProvider"
   "$routeProvider"
   (

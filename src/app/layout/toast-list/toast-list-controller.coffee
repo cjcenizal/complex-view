@@ -1,8 +1,10 @@
 FS.controller "ToastListController", [
+  "$animate"
   "$scope"
   "$timeout"
   "showToastSignal"
   (
+    $animate
     $scope
     $timeout
     showToastSignal

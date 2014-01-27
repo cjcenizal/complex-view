@@ -4,6 +4,7 @@
   "dependencies": {
     "angular":           "*",
     "angular-route":     "*",
+    "angular-animate":   "*",
     "font-awesome":      "*",
     "foundation":        "*",
     "html5-boilerplate": "*",
