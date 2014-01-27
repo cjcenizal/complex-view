@@ -44,4 +44,9 @@ FS.controller "ToastListController", [
 
       $scope.toasts.shift()
 
+    $scope.removeToastAt = (index) ->
+
+      $scope.toasts.splice index, 1
+      startCleanupTimer()
+
 ]

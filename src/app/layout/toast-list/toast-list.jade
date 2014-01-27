@@ -3,5 +3,6 @@
 )
   .panel.toast(
     ng-repeat = "toast in toasts"
+    ng-click  = "removeToastAt($index)"
   )
     {{toast.message}}
