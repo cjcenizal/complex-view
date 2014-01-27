@@ -1,4 +1,7 @@
-div(
+.toast-list(
   ng-controller = "ToastListController"
 )
-  p Hi
+  .toast(
+    ng-repeat = "toast in toasts"
+  )
+    {{toast.message}}
