@@ -51,6 +51,8 @@ FS.factory "rosterMixinFactory", ->
       return _.where @list,
         selected: true
 
-  create: ->
+  return factory =
+  
+    create: ->
 
-    return new RosterMixin
+      return new RosterMixin

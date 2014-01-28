@@ -4,6 +4,6 @@ FS.factory "showToastSignal", [
     signalFactory
   ) ->
 
-    signalFactory.create()
+    return signalFactory.create()
 
 ]

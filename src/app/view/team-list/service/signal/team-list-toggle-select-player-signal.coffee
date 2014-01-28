@@ -4,6 +4,6 @@ FS.factory "teamListToggleSelectPlayerSignal", [
     signalFactory
   ) ->
 
-    signalFactory.create()
+    return signalFactory.create()
 
 ]

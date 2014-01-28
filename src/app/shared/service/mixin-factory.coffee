@@ -1,5 +1,9 @@
 FS.factory "mixinFactory", ->
 
-  (MixIntoClassReference, mixinInterface) ->
+  (MixIntoClassReference, mixinInterface, shouldOverrideProperties = false) ->
 
-    _.defaults MixIntoClassReference.prototype, mixinInterface
+    if shouldOverrideProperties
+      _.extends MixIntoClassReference.prototype, mixinInterface
+
+    else
+      _.defaults MixIntoClassReference.prototype, mixinInterface

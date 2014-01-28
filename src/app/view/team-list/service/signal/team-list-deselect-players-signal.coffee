@@ -4,6 +4,6 @@ FS.factory "teamListDeselectPlayersSignal", [
     signalFactory
   ) ->
 
-    signalFactory.create()
+    return signalFactory.create()
 
 ]

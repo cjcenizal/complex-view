@@ -24,7 +24,6 @@ FS.directive "fsTeamListRosterEditor", [
       # Sport enums.
       #-------------------------------------------------------------------------
 
-      scope.CALVINBALL = sportEnum.value.CALVINBALL
       scope.BEERPONG   = sportEnum.value.BEERPONG
 
       #-------------------------------------------------------------------------

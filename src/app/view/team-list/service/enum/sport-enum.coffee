@@ -13,4 +13,5 @@ FS.factory "sportEnum", [
       CALVINBALL:
         value:          "CALVINBALL"
         humanizedValue: "Calvinball"
+        
 ]
