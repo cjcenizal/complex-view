@@ -43,28 +43,18 @@ Isolated scope is bad for component directives that need to play nicely with oth
 
 Isolated scopes force dependencies to be explicit, encouraging more descriptive and maintainable code.  Since you have to explicitly provide dependencies to a directive via attributes, you also gain some clues about a directive's role just by looking at how it's used in the template.
 
+If you want to pass a dependency, then use an attribute.  Don't group dependencies in a single object; instead create as many attributes as you need, 1 per dependency.  This is one way to expose your API, but it's tricky passing a method to nested isolated scopes.
+
 #### Connect different parts of your app with events
 
 There are a few ways to pass data and messages between directives.
 
-If you want to pass a dependency, then use an attribute.  Don't group dependencies in a single object; instead create as many attributes as you need, 1 per dependency.  This is one way to expose your API, but it's tricky passing a method to nested isolated scopes.
+You can use the scope event system, though this can be inefficient and obscure your view's logic.
 
-You can also use the scope event system, though this can be inefficient and obscure your view's logic.
+I like to use a signal service instead.  This service implements the observer pattern.  Because it's a services, you can register handler functions anywhere in your view, and dispatch them from anywhere.  This uncouples your event system from your scope hierarchy, and keeps your events tightly scoped to your view.
 
-I like to use signal services instead.  These are services the implement the observer pattern.  Because they're services, you can register handler functions anywhere in your view, and dispatch them from anywhere.  This uncouples your event system from your scope hierarchy, and keeps your events tightly scoped to your view.
-
-#### Skinny controllers, fat models
-
-## Questions
-
-#### Should directives always be general or can they be specific to a view?
-
-#### How do view-specific directives communicate with each other and the controller?
-
-#### How do you apply DRY principles to a view that needs to subtly change behavior depending on its state?  
-
-# Credits
+## Credits
 
 - Built for the [Social Angular Meetup](http://www.meetup.com/socal-angular).
 - Learned most of this stuff while at [Shift](www.shift.com).
-- Project template courtesy of [Broman](https://github.com/chemoish/broman).
+- Starter template courtesy of [Broman](https://github.com/chemoish/broman).
