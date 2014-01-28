@@ -1,3 +1,9 @@
+###
+
+fsTeamListSportNavigation changes the currentSport to be displayed.
+
+###
+
 FS.directive "fsTeamListSportNavigation", [
   "sportEnum"
   (

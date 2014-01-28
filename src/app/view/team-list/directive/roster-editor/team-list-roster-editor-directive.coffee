@@ -1,3 +1,10 @@
+###
+
+fsTeamListRosterEditor provides an API for interacting with the
+currentRosterModel.
+
+###
+
 FS.directive "fsTeamListRosterEditor", [
   "sportEnum"
   (

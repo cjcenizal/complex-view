@@ -2,22 +2,24 @@
 //- View of team rosters and roster-editing UI.
 //------------------------------------------------------------------------------
 
+//- Title.
 h1 Fantasy
   strike football
   | &nbsp;made-up sports
-
 hr
 
+//- Navigation between sports.
 fs-team-list-sport-navigation(
   fs-team-list-sport-navigation-current-sport = "currentSport"
 )
 
+//- Buttons for editing the current roster.
 fs-team-list-roster-editor(
   fs-team-list-roster-editor-current-sport        = "currentSport"
   fs-team-list-roster-editor-current-roster-model = "currentRosterModel"
 )
 
-//- Table directive.
+//- Display the current roster table.
 fs-team-list-roster-table(
   fs-team-list-roster-table-current-sport        = "currentSport"
   fs-team-list-roster-table-current-roster-model = "currentRosterModel"

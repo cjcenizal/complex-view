@@ -1,3 +1,10 @@
+###
+
+fsBeerpongEditor is an example of how you can continue to nest view directives
+as you add functionality and need to maintain separation of concerns.
+
+###
+
 FS.directive "fsBeerpongEditor", [
   "showToastSignal"
   "teamListDeselectPlayersSignal"

@@ -1,3 +1,12 @@
+###
+
+TeamListViewController connects the navigation, the roster editing controls,
+and the roster table. It maintains the state of the currentSport and the
+currentRosterModel. In a full-scale app, it would also be responsible for
+loading the models and other view-initialization and teardown logic.
+
+###
+
 FS.controller "TeamListViewController", [
   "$scope"
   "BeerpongRosterModel"

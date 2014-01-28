@@ -1,5 +1,18 @@
+###
+
+fsTeamListBeerpongTable contains beerpong-specific logic. Creating directives
+like this and fsTeamListCalvinballTable appears to duplicate code, but this is
+a better choice than the alternative. Duplicating code that happens to look
+similar lets us clearly separate concerns and paves the way for future growth
+of the codebase. Combining the two directives would be an artificial joining of
+the concerns, and create a maintanence nightmare.
+
+###
+
 FS.directive "fsTeamListBeerpongTable", [
+  "teamListToggleSelectPlayerSignal"
   (
+    teamListToggleSelectPlayerSignal
   ) ->
 
     restrict:    "E"
@@ -7,17 +20,12 @@ FS.directive "fsTeamListBeerpongTable", [
     replace:     true
     scope:
       currentRosterModel: "=fsTeamListBeerpongTableCurrentRosterModel"
-      toggleSelectPlayer: "&fsTeamListBeerpongTableToggleSelectPlayer"
 
     link: (scope) ->
 
-      # TODO: Add button for showing a toast "Drink!"
+      scope.toggleSelectPlayer = (player) ->
 
-      ###
-      This directive requires `toggleSelectPlayer` to be provided via its
-      attributes.  This means it needs to be called in a special way from the
-      template.  It also gets tricky if you want to provide it to a child
-      directive with an isolated scope.
-      ###
+        teamListToggleSelectPlayerSignal.dispatch player
+
 
 ]

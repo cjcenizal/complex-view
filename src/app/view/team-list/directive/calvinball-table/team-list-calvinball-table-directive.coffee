@@ -1,3 +1,14 @@
+###
+
+fsTeamListCalvinballTable contains calvinball-specific logic. Creating
+directives like this and fsTeamListBeerpongTable appears to duplicate code,
+but this is a better choice than the alternative. Duplicating code that happens
+to look similar lets us clearly separate concerns and paves the way for future
+growth of the codebase. Combining the two directives would be an artificial
+joining of the concerns, and create a maintanence nightmare.
+
+###
+
 FS.directive "fsTeamListCalvinballTable", [
   "teamListToggleSelectPlayerSignal"
   (
@@ -11,13 +22,6 @@ FS.directive "fsTeamListCalvinballTable", [
       currentRosterModel: "=fsTeamListCalvinballTableCurrentRosterModel"
 
     link: (scope) ->
-
-      # TODO: Add button that shows random "toasty"-style Calvinball image
-
-      ###
-      This directive requires creates its own `toggleSelectPlayer` scope method,
-      which uses a signal to communicate with whatever directive is listening.
-      ###
 
       scope.toggleSelectPlayer = (player) ->
 

@@ -11,7 +11,7 @@ This example project is an app that lets you manage fantasty teams for two sport
 - The table displays sport-specific stats for user's teams.
 - The row of buttons provides basic functionality that is shared by both teams (e.g. add player, remove player), as well as functionality that's specific to each team.
 
-#### One-off directives as extensions of the controller
+#### Use view directives to extend view controllers
 
 Functionally, these requirements mean our view needs to load the user's account data, manage the presentation of that data, handle user input, watch and react to changes on the scope, coordinate logic among injected services, and clean up after itself on $destroy.
 
@@ -37,17 +37,13 @@ team-list-view
 
 These additional files let me offload logic from the controller and group it into specific concerns.
 
-#### Embrace isolated scope
+#### Use isolated scope to declare dependencies
 
 Isolated scope is bad for component directives that need to play nicely with other directives, e.g. input-validation directives that work with ng-model.  But when breaking a view down into nested templates and directives, you want to avoid implicitly relying on properties and methods on an inherited scope.
 
 Isolated scopes force dependencies to be explicit, encouraging more descriptive and maintainable code.  Since you have to explicitly provide dependencies to a directive via attributes, you also gain some clues about a directive's role just by looking at how it's used in the template.
 
-#### Stay DRY with APIs
-
-Think of each directive in terms of an interface which can be consumed by its children.
-
-#### Inter-directive communication
+#### Connect different parts of your app with events
 
 There are a few ways to pass data and messages between directives.
 

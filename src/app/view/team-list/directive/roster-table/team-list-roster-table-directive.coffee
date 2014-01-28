@@ -1,3 +1,10 @@
+###
+
+fsTeamListRosterTable contains logic shared across all tables which, in this
+case, is just row-selection logic.
+
+###
+
 FS.directive "fsTeamListRosterTable", [
   "teamListDeselectPlayersSignal"
   "teamListToggleSelectPlayerSignal"
@@ -23,12 +30,12 @@ FS.directive "fsTeamListRosterTable", [
 
         scope.currentRosterModel?.deselectAll()
 
-      scope.toggleSelectPlayer = (player) ->
+      toggleSelectPlayer = (player) ->
 
         scope.currentRosterModel.toggleSelect player
 
       removeToggleSelectPlayerListener =
-        teamListToggleSelectPlayerSignal.add scope.toggleSelectPlayer
+        teamListToggleSelectPlayerSignal.add toggleSelectPlayer
 
       removeDeselectPlayersListener =
         teamListDeselectPlayersSignal.add deselectPlayers
