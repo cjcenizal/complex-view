@@ -15,7 +15,7 @@ This example project is an app that lets you manage fantasty teams for two sport
 
 Functionally, these requirements mean our view needs to load the user's account data, manage the presentation of that data, handle user input, watch and react to changes on the scope, coordinate logic among injected services, and clean up after itself on $destroy.
 
-A view is just a template + a controller, and that's a crapton of crap to stuff into two files! I like to use directives to lighten the load.
+A view is just a template + a controller, and that's a crapton of crap to stuff into two files! We can use directives to lighten the load.
 
 My directives' template hierarchy looks like this:
 
