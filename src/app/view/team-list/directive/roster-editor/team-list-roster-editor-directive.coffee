@@ -6,8 +6,10 @@ currentRosterModel.
 ###
 
 FS.directive "fsTeamListRosterEditor", [
+  "rosterModelHelper"
   "sportEnum"
   (
+    rosterModelHelper
     sportEnum
   ) ->
 
@@ -36,18 +38,15 @@ FS.directive "fsTeamListRosterEditor", [
 
       scope.removeSelectedPlayers = ->
 
-        for player in scope.currentRosterModel.getSelected()
-          scope.currentRosterModel.remove player
+        rosterModelHelper.removeSelectedPlayers scope.currentRosterModel
 
       scope.activateSelectedPlayers = ->
 
-        for player in scope.currentRosterModel.getSelected()
-          scope.currentRosterModel.activate player
+        rosterModelHelper.activateSelectedPlayers scope.currentRosterModel
 
       scope.deactivateSelectedPlayers = ->
 
-        for player in scope.currentRosterModel.getSelected()
-          scope.currentRosterModel.deactivate player
+        rosterModelHelper.deactivateSelectedPlayers scope.currentRosterModel
 
       #-------------------------------------------------------------------------
       # Sport-specific roster actions.
@@ -55,6 +54,6 @@ FS.directive "fsTeamListRosterEditor", [
 
       scope.switchHandednessForSelectedPlayers = ->
 
-        for player in scope.currentRosterModel.getSelected()
-          scope.currentRosterModel.switchHandedness player
+        rosterModelHelper.switchHandednessForSelectedPlayers scope.currentRosterModel
+        
 ]
