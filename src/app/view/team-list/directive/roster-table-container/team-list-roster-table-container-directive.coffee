@@ -1,11 +1,11 @@
 ###
 
-fsTeamListRosterTable contains logic shared across all tables which, in this
+fsTeamListRosterTableContainer contains logic shared across all tables which, in this
 case, is just row-selection logic.
 
 ###
 
-FS.directive "fsTeamListRosterTable", [
+FS.directive "fsTeamListRosterTableContainer", [
   "teamListDeselectPlayersSignal"
   "teamListToggleSelectPlayerSignal"
   (
@@ -14,7 +14,7 @@ FS.directive "fsTeamListRosterTable", [
   ) ->
 
     restrict:    "E"
-    templateUrl: "view/team-list/directive/roster-table/team-list-roster-table.html"
+    templateUrl: "view/team-list/directive/roster-table-container/team-list-roster-table-container.html"
     replace:     true
     scope:
       currentSport:       "=fsTeamListRosterTableCurrentSport"
