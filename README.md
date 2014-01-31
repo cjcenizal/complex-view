@@ -2,7 +2,7 @@
 
 Architecting an Angular app can be tricky, especially as it grows in complexity.  How do you break it up and keep code modular?
 
-I’m not a sports guy, but I know beer pong and Calvinball, so I made an app for managing my fantasy teams for these two classic sports.
+I’m not a sports guy, but I know beer pong and Calvinball, so I made an app for managing my fantasy teams for these two classic sports. See it in action at http://cjcenizal.github.io/complex-view.
 
 **Gotta stay focused!**
 
