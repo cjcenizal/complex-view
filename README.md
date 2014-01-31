@@ -1,16 +1,14 @@
-# Decomposing complex views
+# Architecting complex views in AngularJS
 
-Architecting an Angular app can be tricky, especially as it grows in complexity.  How do you break it up and keep code modular?
+Architecting an Angular app can be tricky, especially as it grows in complexity. To keep it maintainable as it grows, we can break the view code up in modular, narrowly-defined directives. We'll fulfill DRY principles and respect a clear separation of concerns. 
 
-I’m not a sports guy, but I know beer pong and [Calvinball](http://4.bp.blogspot.com/_zRSvuGbL2L0/TE0I0GlkcTI/AAAAAAAAAg4/kpmU0AfcOAA/s1600/Calvinball%2B5-27-90.jpg), so to illustrate some solutions to this problem, I made an app for managing my fantasy teams for these two classic sports. See it in action at http://cjcenizal.github.io/complex-view.
+I’m not a sports guy, but I know beer pong and [Calvinball](http://4.bp.blogspot.com/_zRSvuGbL2L0/TE0I0GlkcTI/AAAAAAAAAg4/kpmU0AfcOAA/s1600/Calvinball%2B5-27-90.jpg), so to illustrate these ideas, I made an app for managing my fantasy teams for these two classic sports. [See it in action](http://cjcenizal.github.io/complex-view).
 
-**Gotta stay focused!**
+There’s a lot of services in this app that support the app’s functionality, but I’m going to skip over those for the most part, and talk about how the main view is broken up into pieces and organized.
 
-There’s a lot of services in this app that support the app’s functionality, but I’m going to gloss over them and stay focused on how the main view is broken up into pieces and organized.
+#### A scalable folder structure
 
-#### Scaleble folder structure
-
-Inspired by [Broman by Carey Hinoki](https://github.com/chemoish/broman), but the organizing principle reolves around views, directives, and different uses of services (as enums, mixins, models, etc).
+The folder structure is inspired by [Broman by Carey Hinoki](https://github.com/chemoish/broman), but the organizing principle revolves around views, directives, and different uses of services (as enums, mixins, models, etc). I think it scales well as more files and views are added, and forms a logical organization.
 
 ```
 ├── app.coffee
@@ -65,21 +63,21 @@ Inspired by [Broman by Carey Hinoki](https://github.com/chemoish/broman), but th
         └── team-list-view.jade
 ```
 
-#### What’s the point?
+#### Adderall with those concerns?
 
-We want small, bite-size files with laser-focused concerns and logical organization.  This folder structure can expand to accommodate lots of files.  Lots of files means each file can be smaller, which is great because we want each file's concern to be very narrowly-defined.  Work complete.
+We want small, bite-size files with laser-focused concerns.  This folder structure can expand to accommodate lots of files.  Lots of files means each file can be smaller, which is great because that's what we end up with if we very narrowly-define each file's concern. [Work complete](https://www.youtube.com/watch?v=bupagiROLV8).
 
 Controller                | Concern
 ------------------------ | --------------------------------------------------------------
-team-list-view                | Initialize roster models. Maintain state of current sport and current roster model.
+team-list-view                | Initialize roster models. Maintain state of current sport and current roster model. In a full-scale app, would also be responsible for loading model data and other view-initialization and teardown logic.
 
 Directive                | Concern
 ------------------------ | --------------------------------------------------------------
-sport-navigation         | Allow user to change the current sport.
-roster-editor            | Connect UI to an API that calls methods on the current roster model.
+sport-navigation         | Handle user clicks on buttons that allow user to change the current sport.
+roster-editor            | Connect UI to an API that calls methods that edit the current roster model.
 roster-table-container   | Present correct table for current sport and provide row-selection logic.
-calvinball-table         | The name speaks for itself. Goes inside roster-table-container.
-beerpong-table           | Like the calvin-ball table… for beer. Pong.
+calvinball-table         | Shows your Calvinball roster. Goes inside roster-table-container.
+beerpong-table           | Like the calvinball-table, but for beer pong.
 beerpong-editor          | Some extra functionality for editing just the beerpong-table.
 
 We *could* have left all this logic in the controller.  But then we’d have a massive controller file, it’d be a pain in the groin to maintain, and baby Jesus would cry. Instead, we did the courteous thing and we used directives to break up our controller’s concerns into many small files.
@@ -91,13 +89,13 @@ With a lot of directives comes a lot of responsibility. Many of these directives
 Here’s how our controller and directive templates are nested:
 
 ```
-team-list-view --- sport-navigation
-                  roster-editor
-                  roster-table-container --- calvinball-table
-                                             beerpong-table --- beerpong-editor             
+team-list-view -- | sport-navigation
+                  | roster-editor
+                  | roster-table-container -- | calvinball-table
+                                              | beerpong-table -- | beerpong-editor             
 ```
 
-[Like good parents](https://www.youtube.com/watch?v=1tWLDhJ6mjQ), each directive provides its child with the scope dependencies that child needs.  This takes discipline, but it’s better than all your directives sharing the same scope and stepping on each others’ toes.
+[Like good mama birds](https://www.youtube.com/watch?v=1tWLDhJ6mjQ), each directive provides its child with the scope dependencies that child needs.  This takes discipline, but it’s better than all your directives sharing the same scope and stepping on each others’ toes.
 
 #### Long-distance communication between different parts in the app
 
@@ -107,11 +105,13 @@ One option is to use Angular’s scope-bound event system ($broadcast, $emit, an
 
 #### Extract reusable logic into services
 
-Adhering to the “fat model, skinny controller” paradigm, a lot of our logic for manipulating model data has gone into the models.  But really, even models shouldn’t be fat.  None of our files should turn into dumping grounds for unwanted responsibility.  So we also have a bestiary of services to contain helper logic, constants and enums data, and mixins to keep our code DRY and modular.
+Adhering to the “fat model, skinny controller” paradigm, a lot of our logic for manipulating model data has gone into the models.  But really, even models shouldn’t be fat.  None of our files should turn into dumping grounds for unwanted responsibility.
+
+So to keep everything skinny, we have a bestiary of services to contain helper logic, constants and enums data, and mixins to keep our code DRY and modular.  Just like our directives, our services are also narrowly-defined, small, and multiplying like amoeba.
 
 #### Fin
 
-Thanks for checking this out!  Please email me if you have any questions about this stuff or any suggestions on how I can improve it!
+Well, thanks for checking this out!  Please email me if you have any questions or any suggestions on how I can improve this demo.
 
 ## Credits
 
