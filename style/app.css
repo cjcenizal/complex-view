@@ -1,0 +1,65 @@
+/**
+ *
+ * @name App
+ * @description
+ * Root styl file.
+ *
+ */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+* body {
+  padding: 20px;
+}
+table tr.selected-row {
+  background: #fffcb4;
+}
+.icon-spacer {
+  display: inline-block;
+  width: 1em;
+  content: ' ';
+}
+.toast-list {
+  position: fixed;
+  z-index: 10;
+  right: 20px;
+  bottom: 20px;
+}
+.toast {
+  width: 320px;
+  padding: 20px;
+  margin-top: 10px;
+  background-color: rgba(250,250,250,0.8);
+}
+.toast.ng-enter {
+  -webkit-transition: 0.2s linear all;
+  -moz-transition: 0.2s linear all;
+  -o-transition: 0.2s linear all;
+  -ms-transition: 0.2s linear all;
+  transition: 0.2s linear all;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+.toast.ng-enter.ng-enter-active {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.toast.ng-leave {
+  -webkit-transition: 0.2s linear all;
+  -moz-transition: 0.2s linear all;
+  -o-transition: 0.2s linear all;
+  -ms-transition: 0.2s linear all;
+  transition: 0.2s linear all;
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.toast.ng-leave-active {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
