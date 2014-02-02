@@ -1,25 +1,25 @@
-FS.factory "rosterModelHelper", [
+FS.factory "rosterModelSelectedPlayersHelper", [
   (
   ) ->
 
     return helper =
 
-      removeSelectedPlayers: (rosterModel) ->
+      remove: (rosterModel) ->
 
         for player in rosterModel.getSelected()
           rosterModel.remove player
 
-      activateSelectedPlayers: (rosterModel) ->
+      activate: (rosterModel) ->
 
         for player in rosterModel.getSelected()
           rosterModel.activate player
 
-      deactivateSelectedPlayers: (rosterModel) ->
+      deactivate: (rosterModel) ->
 
         for player in rosterModel.getSelected()
           rosterModel.deactivate player
         
-      switchHandednessForSelectedPlayers: (rosterModel) ->
+      switchHandedness: (rosterModel) ->
 
         for player in rosterModel.getSelected()
           rosterModel.switchHandedness player
