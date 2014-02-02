@@ -1,5 +1,7 @@
 # Architecting complex views in AngularJS
 
+*tldr: Keep your codebase manageable by breaking up big views into many small directives, and distributing controller logic among them.*
+
 Architecting an Angular app can be tricky, especially as it grows in complexity. To keep it maintainable as it grows, we can break the view code up in modular, narrowly-defined directives. We'll fulfill DRY principles and respect a clear separation of concerns. 
 
 I’m not a sports guy, but I know beer pong and [Calvinball](http://4.bp.blogspot.com/_zRSvuGbL2L0/TE0I0GlkcTI/AAAAAAAAAg4/kpmU0AfcOAA/s1600/Calvinball%2B5-27-90.jpg), so to illustrate these ideas, I made an app for managing my fantasy teams for these two classic sports. [See it in action](http://cjcenizal.github.io/complex-view).
