@@ -115,6 +115,12 @@ So to keep everything skinny, we have a bestiary of services to contain helper l
 
 Well, thanks for checking this out!  Please email me if you have any questions or any suggestions on how I can improve this demo.
 
+## Recommended reading
+
+- [Code organization in large AngularJS applications](http://cliffmeyers.com/blog/2013/4/21/code-organization-angularjs-javascript)
+- [ng-boilerplate starter project](https://github.com/ngbp/ngbp)
+- [angular-app example non-trivial CRUD app](https://github.com/angular-app/angular-app)
+
 ## Credits
 
 - Built for the [Social Angular Meetup](http://www.meetup.com/socal-angular).
