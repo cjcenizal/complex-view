@@ -1,6 +1,6 @@
 # Architecting complex views in AngularJS
 
-*tldr: Keep your codebase manageable by breaking up big views into many small directives, and distributing controller logic among them.*
+*tldr: Keep your codebase manageable by breaking up big views into many small directives, and distributing controller logic among them. Project created for [this presentation](http://cenizal.com/_angular-architecture).*
 
 Architecting an Angular app can be tricky, especially as it grows in complexity. To keep it maintainable as it grows, we can break the view code up in modular, narrowly-defined directives. We'll fulfill DRY principles and respect a clear separation of concerns. 
 
